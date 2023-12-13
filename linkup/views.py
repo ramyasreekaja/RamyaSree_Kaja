@@ -13,14 +13,14 @@ def linkup_list(request):
     return render(request, 'linkup/linkup_list.html', {'contacts': contacts})
 
 # View to create a new contact
-def linkup_new(request):
+def linkup_form(request):
     if request.method == "POST":
-        form = ContactForm(request.POST)
+        form = Contactform(request.POST)
         if form.is_valid():
             form.save()
             return redirect('linkup_list')
     else:
-        form = ContactForm()
+        form = Contactform()
     return render(request, 'linkup/linkup_form.html', {'form': form})
 
 # View to display contact details
@@ -47,3 +47,18 @@ def linkup_delete(request, id):
         contact.delete()
         return redirect('linkup_list')
     return render(request, 'linkup/linkup_confirm_delete.html', {'contact': contact})
+
+    from django.shortcuts import render, redirect
+from .forms import ContactForm  # Ensure this is correctly imported
+
+#view for creating a contact
+def linkup_form(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('linkup_list')
+    else:
+        form = ContactForm()
+    return render(request, 'linkup/linkup_create.html', {'form': form})
+

@@ -6,10 +6,13 @@
 <body>
     <h1>Contact List</h1>
     <ul>
+        <a href="{% url 'linkup_create' %}">Create contact</a>
         {% for contact in contacts %}
             <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.phone_number }}</li>
         {% empty %}
             <li>No contacts available.</li>
+            <a href="{% url 'linkup_update' %}">Edit</a>
+            <a href="{% url 'linkup_confirm_delete' %}">Delete</a>
         {% endfor %}
     </ul>
 </body>
