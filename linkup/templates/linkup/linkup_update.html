@@ -1,1 +1,15 @@
+{% extends 'linkup/base.html' %}
 
+{% block title %}Edit Contact{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Contact</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- This will render the form fields -->
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'linkup_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
