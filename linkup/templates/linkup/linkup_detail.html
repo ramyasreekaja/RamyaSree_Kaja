@@ -1,35 +1,19 @@
 {% extends 'linkup/base.html' %}
 
-{% block title %}Contact Detail{% endblock %}
+{% block title %}Contact Details{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h2 class="text-primary">Contact Detail</h2>
-    <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <th>Name:</th>
-                <td>{{ contact.first_name }} {{ contact.last_name }}</td>
-            </tr>
-            <tr>
-                <th>Phone:</th>
-                <td>{{ contact.phone_number }}</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>{{ contact.email }}</td>
-            </tr>
-            <tr>
-                <th>Address:</th>
-                <td>{{ contact.address }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="btn-group">
-        <a href="{% url 'linkup_update' contact.id %}" class="btn btn-primary">Edit</a>
-        <a href="{% url 'linkup_confirm_delete' contact.id %}" class="btn btn-danger">Delete</a>
-        <a href="{% url 'linkup_list' %}" class="btn btn-secondary">Back to List</a>
-    </div>
+    <h2>Contact Details</h2>
+    <dl>
+        <dt>Name:</dt>
+        <dd>{{ contact.name }}</dd>
+        
+        <dt>Email:</dt>
+        <dd>{{ contact.email }}</dd>
+        
+        <!-- Add other fields as needed -->
+    </dl>
+    <a href="{% url 'linkup_list' %}" class="btn btn-secondary">Back to List</a>
 </div>
-<a href="{% url 'linkup_detail' contact.id %}" class="btn btn-sm btn-secondary">View</a>
 {% endblock %}

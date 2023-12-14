@@ -3,9 +3,10 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.linkup_list, name='linkup_list'),
+    #path('', views.linkup_list, name='linkup_list'),
     path('contact/', views.linkup_form, name='linkup_form'),
     path('create/', views.linkup_create, name='linkup_create'),
+    path('list/', views.linkup_list, name='linkup_list'), 
     #path('contact/create/', views.linkup_create, name='linkup_create'),
     path('contact/<int:id>/', views.linkup_detail, name='linkup_detail'),
     path('edit_contact/<int:id>/', views.linkup_update, name='linkup_update'),

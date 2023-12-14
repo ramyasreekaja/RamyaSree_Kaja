@@ -5,14 +5,16 @@
 {% block content %}
 <div class="container">
     <h2 class="text-success">Create New Contact</h2>
-    <form method="post">
+    <form method="post" action="{% url 'linkup_create' %}">
         {% csrf_token %}
         <table class="table table-bordered">
             {{ form.as_table }}
         </table>
         <button type="submit" class="btn btn-success">Save Contact</button>
     </form>
-    <a href="{% url 'linkup_create' %}">Create Linkup</a>
     <a href="{% url 'linkup_list' %}" class="btn btn-secondary mt-2">Back to Contact List</a>
 </div>
 {% endblock %}
+
+
+
